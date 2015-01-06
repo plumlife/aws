@@ -397,6 +397,7 @@ data ObjectMetadata
     = ObjectMetadata {
         omDeleteMarker         :: Bool
       , omETag                 :: T.Text
+      , omSize                 :: Integer
       , omLastModified         :: UTCTime
       , omVersionId            :: Maybe T.Text
 -- TODO:
@@ -411,6 +412,7 @@ parseObjectMetadata :: MonadThrow m => HTTP.ResponseHeaders -> m ObjectMetadata
 parseObjectMetadata h = ObjectMetadata
                         `liftM` deleteMarker
                         `ap` etag
+                        `ap` sz
                         `ap` lastModified
                         `ap` return versionId
 --                        `ap` expiration
@@ -425,6 +427,11 @@ parseObjectMetadata h = ObjectMetadata
         etag = case T.decodeUtf8 `fmap` lookup "ETag" h of
                  Just x -> return x
                  Nothing -> throwM $ HeaderException "ETag missing"
+        sz = case B8.unpack `fmap` lookup "Content-Length" h of
+               Just x -> case reads x :: [(Integer,String)] of
+                           [(x',"")] -> return x'
+                           _ -> throwM $ HeaderException ("Invalid Content-Length: " ++ x)
+               Nothing -> throwM $ HeaderException "Content-Length missing"
         lastModified = case B8.unpack `fmap` lookup "Last-Modified" h of
                          Just ts -> case parseHttpDate ts of
                                       Just t -> return t
