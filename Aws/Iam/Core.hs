@@ -32,7 +32,6 @@ import           Data.Time
 import           Data.Typeable
 import qualified Network.HTTP.Conduit           as HTTP
 import qualified Network.HTTP.Types             as HTTP
-import           System.Locale
 import           Text.XML.Cursor                (($//))
 import qualified Text.XML.Cursor                as Cu
 
