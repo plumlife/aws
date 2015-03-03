@@ -32,6 +32,7 @@ import qualified Network.HTTP.Conduit           as HTTP
 import qualified Network.HTTP.Types             as HTTP
 import qualified Text.XML                       as XML
 import qualified Text.XML.Cursor                as Cu
+import           System.Locale
 
 data S3Authorization
     = S3AuthorizationHeader

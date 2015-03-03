@@ -34,6 +34,7 @@ import qualified Network.HTTP.Conduit           as HTTP
 import qualified Network.HTTP.Types             as HTTP
 import           Text.XML.Cursor                (($//))
 import qualified Text.XML.Cursor                as Cu
+import           System.Locale
 
 data IamError
     = IamError {

@@ -8,6 +8,7 @@ import           Data.Time.Format
 import           Text.XML.Cursor  (($/), ($//), (&|))
 import qualified Data.Text        as T
 import qualified Text.XML.Cursor  as Cu
+import           System.Locale
 
 data GetService = GetService
 

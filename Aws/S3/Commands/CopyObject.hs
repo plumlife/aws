@@ -14,6 +14,7 @@ import qualified Data.Text.Encoding as T
 import           Data.Time
 import qualified Network.HTTP.Conduit as HTTP
 import           Text.XML.Cursor (($/), (&|))
+import           System.Locale
 
 data CopyMetadataDirective = CopyMetadata | ReplaceMetadata [(T.Text,T.Text)]
   deriving (Show)

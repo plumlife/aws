@@ -1,5 +1,5 @@
 Name:                aws
-Version:             0.12
+Version:             0.11.99
 Synopsis:            Amazon Web Services (AWS) for Haskell
 Description:         Bindings for Amazon Web Services (AWS), with the aim of supporting all AWS services. To see a high level overview of the library, see the README at <https://github.com/aristidb/aws/blob/master/README.org>.
 Homepage:            http://github.com/aristidb/aws
@@ -138,10 +138,11 @@ Library
                        scientific           >= 0.3,
                        tagged               >= 0.7     && < 0.8,
                        text                 >= 0.11,
-                       time                 >= 1.5,
+                       time,
+                       old-locale,
                        transformers         >= 0.2.2   && < 0.5,
                        unordered-containers >= 0.2,
-                       utf8-string          == 0.3.*,
+                       utf8-string          >= 1,
                        vector               >= 0.10,
                        xml-conduit          >= 1.2     && <1.3
  

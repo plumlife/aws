@@ -26,6 +26,7 @@ import qualified Network.HTTP.Types             as HTTP
 import qualified Text.XML                       as XML
 import           Text.XML.Cursor                (($/))
 import qualified Text.XML.Cursor                as Cu
+import           System.Locale
 
 type ErrorCode = T.Text
 
